@@ -1,0 +1,22 @@
+{
+  "name": "binary-tree-practice",
+  "version": "1.0.0",
+  "description": "Adding Test",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --watchAll"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Genoval13/Binary-Tree-Practice.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Genoval13/Binary-Tree-Practice/issues"
+  },
+  "homepage": "https://github.com/Genoval13/Binary-Tree-Practice#readme",
+  "devDependencies": {
+    "jest": "^23.6.0"
+  }
+}
