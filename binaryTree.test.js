@@ -12,7 +12,6 @@ describe('add a new child', () => {
         tree.addChild(2);
         expect(tree.root.right.value).toEqual(1);
 
-        console.log(tree.allNodes);
     })
 })
 
