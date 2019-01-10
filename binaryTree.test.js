@@ -6,34 +6,32 @@ describe('add a new child', () => {
 
         tree.addChild(0);
         expect(tree.root.value).toEqual(0);
+
         tree.addChild(1);
-        //console.log(tree)
+
         tree.addChild(2);
         expect(tree.root.right.value).toEqual(1);
-        console.log(tree.allNodes)
-        
-       
-        //expect(tree.root.right.value).toEqual(3);
 
+        console.log(tree.allNodes);
     })
 })
 
-// describe('remove child', () => {
-//     it('should remove child with the given value', () => {
-//         let tree = new Tree(0);
-//         tree.addChild(1);
-//         tree.addChild(2);
-//         tree.addChild(3);
-//         tree.addChild(4);
+describe('remove child', () => {
+    it('should remove child with the given value', () => {
+        let tree = new Tree(0);
+        tree.addChild(1);
+        tree.addChild(2);
+        tree.addChild(3);
+        tree.addChild(4);
 
-//         tree.removeChild(4);
-//         expect(tree.children[0].children).toHaveLength(1);
+        tree.removeChild(4);
+        expect(tree.children[0].children).toHaveLength(1);
 
-//         tree.removeChild(2);
-//         expect(tree.children).toHaveLength(1);
+        tree.removeChild(2);
+        expect(tree.children).toHaveLength(1);
 
-//     })
-// })
+    })
+})
 
 // describe('find value by DFS', () => {
 //     it('should find the node with the given value by DFS', () => {
