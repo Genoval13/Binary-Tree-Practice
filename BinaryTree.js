@@ -61,12 +61,7 @@ class Tree {
             return('number doesnt exist')
         } 
           array.push(currentNode.value);
-            //console.log(array)
-            // console.log(currentNode)
-            // console.log(currentNode.value)
-            // console.log(value)
             if (currentNode.value === value) {
-                //console.log('he')
                 return currentNode;
                 break;
             } else if (value < currentNode.value) {
@@ -78,6 +73,19 @@ class Tree {
             }
 
         }
+    }
+
+    removeChild (value) {
+      let banana = this.findByDFS(value);
+      console.log(banana);
+      if (banana.left === null && banana.right === null) {
+        banana.value = null;
+      } else if (banana.left === null && banana.right !== null) {
+        return banana = banana.right;
+      } else if (banana.left !== null && banana.right === null) {
+        banana = banana.left;
+        // console.log(banana);
+      }
     }
 }
 

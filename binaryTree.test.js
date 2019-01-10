@@ -16,22 +16,31 @@ describe('add a new child', () => {
     })
 })
 
-// describe('remove child', () => {
-//     it('should remove child with the given value', () => {
-//         let tree = new Tree(0);
-//         tree.addChild(1);
-//         tree.addChild(2);
-//         tree.addChild(3);
-//         tree.addChild(4);
+describe('remove child', () => {
+    it('should remove child with the given value', () => {
+        let tree = new Tree();
+        tree.addChild(0);
+        tree.addChild(-5);
+        tree.addChild(5);
+        tree.addChild(-7);
+        tree.addChild(-2);
+        tree.addChild(2);
+        tree.addChild(7);
+        tree.addChild(-9);
 
-//         tree.removeChild(4);
-//         expect(tree.children[0].children).toHaveLength(1);
+        // console.log(tree);
 
-//         tree.removeChild(2);
-//         expect(tree.children).toHaveLength(1);
+        // tree.removeChild(2);
 
-//     })
-// })
+        // expect(tree.root.right.left.value).toEqual(null);
+
+        tree.removeChild(-7);
+
+        expect(tree.root.left.left.value).toEqual(-9);
+
+
+    })
+})
 
 describe('find value by DFS', () => {
     it('should find the node with the given value by DFS', () => {
@@ -46,7 +55,7 @@ describe('find value by DFS', () => {
         tree.addChild(-9);
         tree.addChild(-6);
         
-     //console.log('this',tree.findByDFS(1));
+
         expect(tree.findByDFS(-6).value).toEqual(-6);
         //expect(tree.findByDFS(1).value).toEqual('number doesnt exist');
         expect(tree.findByDFS(7).value).toEqual(7);
