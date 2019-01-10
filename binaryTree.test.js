@@ -8,8 +8,6 @@ describe('add a new child', () => {
         expect(tree.root.value).toEqual(0);
 
         tree.addChild(1);
-
-        tree.addChild(2);
         expect(tree.root.right.value).toEqual(1);
 
     })
@@ -18,17 +16,24 @@ describe('add a new child', () => {
 describe('remove child', () => {
     it('should remove child with the given value', () => {
         let tree = new Tree(0);
-        tree.addChild(1);
-        tree.addChild(2);
-        tree.addChild(3);
-        tree.addChild(4);
+        let arr = [50, 76, 21, 4, 32, 64, 15];
+        arr.forEach(el => tree.addChild(el));
 
-        tree.removeChild(4);
-        expect(tree.children[0].children).toHaveLength(1);
+        tree.removeChild(21);
+        expect(tree.root.left.value).toEqual(32);
+        tree.removeChild(76);
+        expect(tree.root.right.value).toEqual(64)
+    })
+});
 
-        tree.removeChild(2);
-        expect(tree.children).toHaveLength(1);
-
+describe('find the smaller node given a node', () => {
+    it('should return minimum node', () => {
+        let tree = new Tree(0);
+        let arr = [50, 76, 21, 4, 32, 64, 15];
+        arr.forEach(el => tree.addChild(el));
+        let node1 = tree.root;
+        
+        expect(tree.findMinNode(node1).value).toEqual(4)
     })
 })
 
