@@ -9,18 +9,18 @@ class Node {
 class Tree {
     constructor() {
         this.root = null;
-        this.allNodes = [];
+
     }
     addChild(value) {   // 2
         let root = this.root; //0
         if (!root) {
             this.root = new Node(value);
-            this.allNodes.push(this.root);
+
             return;
         } else {
-            let currentNode = root; //0
-            let newNode = new Node(value); //2
-            this.allNodes.push(newNode);
+            let currentNode = root;  //12
+            let newNode = new Node(value); //11
+
             this.insertValue(currentNode, newNode)
         }
     }
@@ -43,14 +43,41 @@ class Tree {
         }
     }
 
-    removeChild(value) {
-        let root = this.root;
-        let currentNode = root;
-        let nodeList = [];
-        while (currentNode) {
-            nodeList.push(currentNode);
+    findByDFS(value) {
+        let currentNode = this.root;
+        if (!currentNode) {
+            return null;
+        } else {
+            let array = [];
+            return this.findValue(currentNode, value, array)
+
         }
-        nodeList.filter(el => el !== value)
+    }
+
+    findValue(currentNode, value, array) {
+
+        while(currentNode) {
+        if (currentNode === array[0]) {
+            return('number doesnt exist')
+        } 
+          array.push(currentNode.value);
+            //console.log(array)
+            // console.log(currentNode)
+            // console.log(currentNode.value)
+            // console.log(value)
+            if (currentNode.value === value) {
+                //console.log('he')
+                return currentNode;
+                break;
+            } else if (value < currentNode.value) {
+                currentNode = currentNode.left;
+                this.findValue(currentNode, value, array)
+            } else {
+                currentNode = currentNode.right;
+                this.findValue(currentNode, value, array)
+            }
+
+        }
     }
 }
 
